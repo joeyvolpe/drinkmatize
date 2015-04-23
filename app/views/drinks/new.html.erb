@@ -1,0 +1,19 @@
+<h1>Add new drink!</h1>
+
+<%= form_for @drink do |f| %>
+
+<div>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+</div>
+
+<div>
+    <%= f.label :recipe %>
+    <%= f.text_area :recipe %>
+</div>
+
+<%= f.submit "Add new drink!" %>
+
+<% end %>
+
+<%= link_to "Back to drink timeline!", drinks_path %>

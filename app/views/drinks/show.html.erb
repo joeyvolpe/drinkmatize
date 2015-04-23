@@ -1,0 +1,8 @@
+<br><br>
+
+<strong><%= @drink.name %></strong>
+<%= link_to "edit", edit_drink_path(@drink) %>
+<%= link_to "remove", drink_path, method: :delete, data: {confirm: "Are you sure?"} %>
+<br><em><%= @drink.recipe %></em><br>
+
+<br><%= link_to "Back to drink timeline!", drinks_path %>

@@ -1,0 +1,29 @@
+<br>
+    <% if current_user && current_user.id != @user.id %>
+        <h1><%= @user.name %> says, <br>"Don't fucking look at my recipes, <%= current_user.name %>."</h1>
+    <% end %>
+
+<h2><%= "#{@user.name}'s Recipes" %></h2>
+
+<% @user.drinks.reverse.each do |drink| %>
+    <strong><%= drink.name %> </strong>
+
+    <% if current_user && current_user.id == @user.id %>
+        <%= link_to "edit", edit_drink_path(drink) %> 
+        <%= link_to "remove", drink_path(drink), method: :delete, data: {confirm: "Are you sure?"} %>
+    <% end %>
+
+    <br><em><%= drink.recipe %></em><br>
+
+<% end %>
+
+    
+<br>
+<%= link_to "add drink", new_drink_path %>
+<br><%= link_to "Back to drink timeline!", drinks_path %>
+
+
+
+
+
+
