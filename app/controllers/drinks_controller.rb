@@ -42,7 +42,7 @@ class DrinksController < ApplicationController
     def destroy
         @drink = Drink.find(params[:id])
         @drink.destroy
-        redirect_to drinks_path
+        redirect_to user_path(@drink.user)
     end
 
     def can_delete?
