@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="dataSourceStorageLocal">
+    <data-source name="Rails drinkmatize: development" uuid="1b596a43-4b6e-4db9-a161-7e4d1d76ad70" />
+    <data-source name="SQLite -" uuid="e4a574b8-84aa-4b31-a5c9-233591b114ad">
+      <secret-storage>master_key</secret-storage>
+      <first-sync>true</first-sync>
+    </data-source>
+  </component>
+</project>

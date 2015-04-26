@@ -1,8 +1,44 @@
-<br><br>
+<br>
+<h2><%= "#{@drink.name}" %></h2>
+<%= link_to "Back to drink timeline!", drinks_path %>
+<br>
+<br>
+<br>
+<strong><%= "#{@drink.name}" %></strong>
+<% if current_user && current_user.id == @drink.user.id %>
+  <%= link_to "edit", edit_drink_path(@drink) %>
+  <%= link_to "remove", drink_path, method: :delete, data: {confirm: "Are you sure?"} %>
+<% end %> created on 
+<%= @drink.created_at.to_formatted_s(:long_ordinal) %>
+<br>Glassware: 
+<%= @drink.glassware %>
+<br>Spirit(s): 
+<% @drink.spirits.each do |spirit| %>
+  <%= spirit.name %>
+  <% if spirit == @drink.spirits.last %>
+  <% else %>
+    <% if @drink.spirits.count >= 2 %>
+      <% if spirit == @drink.spirits[-2] %>
+        <%= " and " %>
+      <% else %>
+        <%= ", " %>
+      <% end %>
+    <% end %>
+  <% end %>
+<% end %>
+<br>
+Recipe: 
+<em><%= @drink.recipe %></em>
+<br>Season: 
+<%= @drink.season %>
+<br>Price: 
+<%= number_to_currency(@drink.price, negative_format: "(%u%n)") %>
 
-<strong><%= @drink.name %></strong>
-<%= link_to "edit", edit_drink_path(@drink) %>
-<%= link_to "remove", drink_path, method: :delete, data: {confirm: "Are you sure?"} %>
-<br><em><%= @drink.recipe %></em><br>
 
-<br><%= link_to "Back to drink timeline!", drinks_path %>
+
+
+
+
+
+
+

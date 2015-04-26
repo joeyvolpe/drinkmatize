@@ -1,14 +1,13 @@
 <br>
-<h2><%= "#{@user.name}'s Recipes" %></h2>
+<h2><%= "#{@spirit.name.titlecase} Recipes" %></h2>
 <%= link_to "add drink", new_drink_path %>
 <br>
 <%= link_to "drink timeline", drinks_path %>
 <br>
 <br>
-<br>
-<% @user.drinks.reverse.each do |drink| %>
-  <strong><%= drink.name %> </strong>
-  <% if current_user && current_user.id == @user.id %>
+<% @spirit.drinks.reverse.each do |drink| %>
+  <strong><%= drink.name %></strong> 
+  <% if current_user && current_user.id == drink.user.id %>
     <%= link_to "edit", edit_drink_path(drink) %> 
     <%= link_to "remove", drink_path(drink), method: :delete, data: {confirm: "Are you sure?"} %>
   <% end %> created on 
@@ -32,6 +31,3 @@
   <br>
   <br>
 <% end %>
-
-
-

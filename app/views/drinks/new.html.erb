@@ -1,19 +1,40 @@
-<h1>Add new drink!</h1>
-
+<br>
+<h2>Add new drink!</h2>
+<%= link_to "drink timeline", drinks_path %>
+<br>
+<br>
+<br>
 <%= form_for @drink do |f| %>
-
-<div>
-    <%= f.label :name %>
+  <div>
+    <strong><%= f.label :name %>:</strong>
     <%= f.text_field :name %>
-</div>
-
-<div>
-    <%= f.label :recipe %>
+  </div>
+  <div>
+    <strong><%= f.label :Glassware %>:</strong>
+    <% glassware_options = ["rocks", "highball", "cocktail"] %>
+    <%= f.select :glassware, glassware_options %>
+  </div>
+  <div>
+    <strong><%= f.label :Spirit %>:</strong>
+    <%= f.collection_select(:spirit_ids, Spirit.all, :id, :name, {}, {:multiple => true}) %>
+  </div>
+  <div>
+    <strong><%= f.label :recipe %>:</strong>
     <%= f.text_area :recipe %>
-</div>
-
-<%= f.submit "Add new drink!" %>
-
+  </div>
+  <div>
+    <strong><%= f.label :Season %>:</strong>
+    <% season_options = ["spring", "summer", "fall", "winter"] %>
+    <%= f.select :season, season_options %>
+  </div>
+  <div>
+    <strong><%= f.label :Price %>:</strong>
+    <%= f.number_field(:price) %>
+  </div>
+  <br>
+  <%= f.submit "Add new drink!" %>
 <% end %>
 
-<%= link_to "Back to drink timeline!", drinks_path %>
+
+
+

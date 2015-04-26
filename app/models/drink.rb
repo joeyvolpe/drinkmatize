@@ -1,4 +1,4 @@
 class Drink < ActiveRecord::Base
   belongs_to :user
-  #before save
+  has_and_belongs_to_many :spirits
 end

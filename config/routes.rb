@@ -11,16 +11,22 @@ Rails.application.routes.draw do
   patch "drinks/:id" => "drinks#update"
   delete "drinks/:id" => "drinks#destroy"
 
-  # get "users" => "users#index"
+
+  get "users" => "users#index"
   get "users/:id" => "users#show", as: :user
   post "users" => "users#create"
   post "users/:id/drinks" => "drinks#create", as: :user_drinks
   delete "users/:id" => "users#destroy"
 
+
   get "signup" => "users#new"
   get "login" => "sessions#new"
   post "login" => "sessions#create"
   delete "logout" => "sessions#destroy"
+
+
+  get "spirits/" => "spirits#index"
+  get "spirits/:id" => "spirits#show", as: :spirit
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

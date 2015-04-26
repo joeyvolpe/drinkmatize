@@ -1,8 +1,11 @@
-<!-- <h1>Users</h1> -->
-
-<!-- <ul>
-  <% @users.each do |user| %>
-    <li><%= user.name %> <%= link_to 'remove', user_path(user), method: :delete %> </li>
-
-  <% end %>
-</ul> -->
+<br>
+<h2>Users</h2>
+<%= link_to "Back to drink timeline!", drinks_path %>
+<br>
+<br>
+<br>
+<% @users.each do |user| %>
+  <strong><%= link_to "#{user.name}", user_path(user) %></strong>
+  <%= link_to 'remove', user_path(user), method: :delete %>
+  <br>
+<% end %>
