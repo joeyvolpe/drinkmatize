@@ -1,7 +1,5 @@
 class DrinksController < ApplicationController
 
-    # before_action :can_delete?, only: [:destroy]
-
     def index
         @drinks = Drink.all
     end
@@ -45,16 +43,17 @@ class DrinksController < ApplicationController
         redirect_to user_path(@drink.user)
     end
 
-    def can_delete?
-        @user = User.find(params[:id])
-        unless @drink.user = current_user
-            flash[:error] = "Fuck off, #{current_user}!"
-            redirect_to drinks_path
-        end
-    end
 
     private
     def drink_params
-        params.require(:drink).permit(:name, :recipe)
+        params.require(:drink).permit(:name, :recipe, :glassware, :price, :season, :spirit_ids => [])
     end
+
+
+
+
+
+
+
+
 end
