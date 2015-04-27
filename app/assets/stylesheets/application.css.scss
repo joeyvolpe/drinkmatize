@@ -16,3 +16,29 @@
 
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+
+body {
+  text-align: center;
+}
+
+img {
+  width: 30px;
+  height: 30px;
+}
+
+#logo {
+  font-family: 'Lobster', cursive;
+  font-size: 45px;
+}
+
+#sub_logo {
+  font-size: 30px;
+}
+
+#email {
+  translate: transformX(30px);
+}
+
+
+

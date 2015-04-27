@@ -1,36 +1,41 @@
 <br>
-<h2>Today's Drinks</h2>
-<%= link_to "add drink", new_drink_path %>
-<br>
-<br>
-<% @drinks.reverse.each do |drink| %>
-  <div<div class="container-fluid">
-      <div class="well well-sm">
-        <strong><%= link_to "#{drink.name}", drink_path(drink) %></strong> by 
-        <em><%= link_to "#{drink.user.name}", user_path(drink.user) %></em>
-        <% if drink.spirits.count > 0 %>, a 
-          <% drink.spirits.each do |spirit| %>
-            <%= link_to spirit.name, spirit_path(spirit)%>
-            <% if spirit == drink.spirits.last %>
-            <% else %>
-              <% if drink.spirits.count >= 2 %>
-                <% if spirit == drink.spirits[-2] %>
-                  <%= " and " %>
-                <% else %>
-                  <%= ", " %>
-               <% end %>
-              <% end %>
-            <% end %>
-          <% end %>-based drink! 
-        <% end %>
-        <br> 
-        <%= drink.created_at.strftime("created at %I:%M%p on %m/%d/%Y")%> 
-      </div>
-      <br>
+<div<div class="container-fluid">
+  <div class="well well-xs">
+    <h2 id="logo">Today's Drinks</h2>
+    <%= link_to "add drink", new_drink_path %>
   </div>
-<% end %>
-<br>
-<br>
+  <br>
+  <div class="well well-xs">
+    <% @drinks.reverse.each do |drink| %>
+      <strong><%= link_to "#{drink.name}", drink_path(drink) %></strong> by 
+      <em><%= link_to "#{drink.user.name},", user_path(drink.user) %></em>
+      <% if drink.spirits.count > 0 %>a 
+        <% drink.spirits.each do |spirit| %>
+          <%= link_to spirit.name, spirit_path(spirit)%>
+          <% if spirit == drink.spirits.last %>
+          <% else %>
+            <% if drink.spirits.count >= 2 %>
+              <% if spirit == drink.spirits[-2] %>
+                <%= " and " %>
+              <% else %>
+                <%= ", " %>
+             <% end %>
+            <% end %>
+          <% end %>
+        <% end %>cocktail 
+      <% end %>
+      <br> 
+      <%= drink.created_at.strftime("created at %I:%M%p on %m/%d/%Y")%> 
+      <br>
+      <br>
+    <% end %>
+  </div> 
+  <br>
+  <br>
+</div>
+
+
+
 
 
 

@@ -1,38 +1,48 @@
 <br>
-<h2><%= "#{@drink.name}" %></h2>
-<%= link_to "Back to drink timeline!", drinks_path %>
-<br>
-<br>
-<br>
-<strong><%= "#{@drink.name}" %></strong>
-<% if current_user && current_user.id == @drink.user.id %>
-  <%= link_to "edit", edit_drink_path(@drink) %>
-  <%= link_to "remove", drink_path, method: :delete, data: {confirm: "Are you sure?"} %>
-<% end %> created on 
-<%= @drink.created_at.to_formatted_s(:long_ordinal) %>
-<br>Glassware: 
-<%= @drink.glassware %>
-<br>Spirit(s): 
-<% @drink.spirits.each do |spirit| %>
-  <%= spirit.name %>
-  <% if spirit == @drink.spirits.last %>
-  <% else %>
-    <% if @drink.spirits.count >= 2 %>
-      <% if spirit == @drink.spirits[-2] %>
-        <%= " and " %>
+<div<div class="container-fluid">
+  <div class="well well-xs">
+    <h2 id="logo"><%= @drink.name %></h2>
+    <%= link_to "drink timeline", drinks_path %>
+  </div>
+  <br>
+  <div class="well well-sm">
+    by 
+    <%= link_to @drink.user.name, user_path(@drink.user) %> 
+    <% if current_user && current_user.id == @drink.user.id %>
+      (<%= link_to "edit", edit_drink_path(@drink) %>
+      <%= link_to "remove", drink_path, method: :delete, data: {confirm: "Are you sure?"} %>)
+    <% end %>
+    <br>created on 
+    <%= @drink.created_at.to_formatted_s(:long_ordinal) %>
+    <br>
+    <br>
+    <strong>Glassware:</strong> 
+    <%= @drink.glassware %>
+    <br>
+    <strong>Spirit(s):</strong> 
+    <% @drink.spirits.each do |spirit| %>
+      <%= link_to spirit.name, spirit_path(spirit) %>
+      <% if spirit == @drink.spirits.last %>
       <% else %>
-        <%= ", " %>
+        <% if @drink.spirits.count >= 2 %>
+          <% if spirit == @drink.spirits[-2] %>
+            <%= " and " %>
+          <% else %>
+            <%= ", " %>
+          <% end %>
+        <% end %>
       <% end %>
     <% end %>
-  <% end %>
-<% end %>
-<br>
-Recipe: 
-<em><%= @drink.recipe %></em>
-<br>Season: 
-<%= @drink.season %>
-<br>Price: 
-<%= number_to_currency(@drink.price, negative_format: "(%u%n)") %>
+    <br> 
+    <em><%= @drink.recipe %></em>
+    <br>
+    <strong>Season:</strong> 
+    <%= @drink.season %>
+    <br>
+    <strong>Price:</strong> 
+    <%= number_to_currency(@drink.price, negative_format: "(%u%n)") %>
+  </div>
+</div>
 
 
 

@@ -1,0 +1,27 @@
+<br>
+<div class="well well-xs">
+  <h2 id="logo">Edit Your Profile!</h2>
+</div>
+<br>
+<div class="well well-xs">
+  <%= form_for @user do |f| %>
+    <div>
+      <%= f.label :name %>
+      <%= f.text_field :name %>
+    </div>
+    <%= f.label :Picture %>
+    <%= f.file_field :pic_url %>
+  <% end %>
+    <div>
+      <%= f.label :email %>
+      <%= f.text_field :email %>
+    </div>
+    <div>
+      <%= f.label :password %>
+      <%= f.password_field :password %>
+    </div>
+    <div>
+      <%= f.submit %>
+    </div>
+  <% end %>
+</div>

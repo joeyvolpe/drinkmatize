@@ -1,18 +1,27 @@
 <br>
-<h2>Log In</h2>
 <br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<div id="logo">
+  Bartinder <%= image_tag("cocktail.png") %>
+</div>
+<div id="sub_logo">
+  make love to drinks
+</div>
 <br>
 <br>
 <%= form_for :login do |f| %>
-  <div>
+  <div class="well well-xs"> 
     <%= f.label :email %>
     <%= f.text_field :email %>
-  </div>
-  <div>
+    <br>
     <%= f.label :password %>
     <%= f.password_field :password %>
-  </div>
-  <div>
+    <br>
+    <br>
     <%= f.submit 'Log In' %>
   </div>
 <% end %>

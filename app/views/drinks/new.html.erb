@@ -1,39 +1,41 @@
 <br>
-<h2>Add new drink!</h2>
-<%= link_to "drink timeline", drinks_path %>
-<br>
-<br>
-<br>
-<%= form_for @drink do |f| %>
-  <div>
-    <strong><%= f.label :name %>:</strong>
-    <%= f.text_field :name %>
-  </div>
-  <div>
-    <strong><%= f.label :Glassware %>:</strong>
-    <% glassware_options = ["rocks", "highball", "cocktail"] %>
-    <%= f.select :glassware, glassware_options %>
-  </div>
-  <div>
-    <strong><%= f.label :Spirit %>:</strong>
-    <%= f.collection_select(:spirit_ids, Spirit.all, :id, :name, {}, {:multiple => true}) %>
-  </div>
-  <div>
-    <strong><%= f.label :recipe %>:</strong>
-    <%= f.text_area :recipe %>
-  </div>
-  <div>
-    <strong><%= f.label :Season %>:</strong>
-    <% season_options = ["spring", "summer", "fall", "winter"] %>
-    <%= f.select :season, season_options %>
-  </div>
-  <div>
-    <strong><%= f.label :Price %>:</strong>
-    <%= f.number_field(:price) %>
+<div<div class="container-fluid">
+  <div class="well well-xs">
+    <h2 id="logo">Add new drink!</h2>
+    <%= link_to "drink timeline", drinks_path %>
   </div>
   <br>
-  <%= f.submit "Add new drink!" %>
-<% end %>
+  <%= form_for @drink do |f| %>
+    <div class="well well-xs">
+      <strong><%= f.label :name %>:</strong>
+      <%= f.text_field :name %>
+      <br>
+      <strong><%= f.label :Glassware %>:</strong>
+      <% glassware_options = ["rocks", "highball", "cocktail"] %>
+      <%= f.select :glassware, glassware_options %>
+      <br>
+      <strong><%= f.label :Spirit %>:</strong>
+      <%= f.collection_select(:spirit_ids, Spirit.all, :id, :name, {}, {:multiple => true}) %>
+      <br>
+      <strong><%= f.label :recipe %>:</strong>
+      <%= f.text_area :recipe %>
+      <br>
+      <strong><%= f.label :Season %>:</strong>
+      <% season_options = ["spring", "summer", "fall", "winter"] %>
+      <%= f.select :season, season_options %>
+      <br>
+      <strong><%= f.label :Price %>:</strong>
+      <%= f.number_field(:price) %>
+    </div>
+    <div class="well well-sm">
+      <%= f.submit "Add new drink!" %>
+    </div>
+
+
+
+
+  <% end %>
+</div>
 
 
 

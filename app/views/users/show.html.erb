@@ -1,37 +1,54 @@
 <br>
-<h2><%= "#{@user.name}'s Recipes" %></h2>
-<%= link_to "add drink", new_drink_path %>
-<br>
-<%= link_to "drink timeline", drinks_path %>
-<br>
-<br>
-<br>
-<% @user.drinks.reverse.each do |drink| %>
-  <strong><%= drink.name %> </strong>
-  <% if current_user && current_user.id == @user.id %>
-    <%= link_to "edit", edit_drink_path(drink) %> 
-    <%= link_to "remove", drink_path(drink), method: :delete, data: {confirm: "Are you sure?"} %>
-  <% end %> created on 
-  <%= drink.created_at.to_formatted_s(:long_ordinal) %>
-  <br>Spirit(s): 
-  <% drink.spirits.each do |spirit| %>
-    <%= spirit.name %>
-      <% if spirit == drink.spirits.last %>
-      <% else %>
-        <% if drink.spirits.count >= 2 %>
-          <% if spirit == drink.spirits[-2] %>
-            <%= " and " %>
-          <% else %>
-            <%= ", " %>
+<div<div class="container-fluid">
+  <div class="well well-xs">
+    <h2 id="logo"><%= "#{@user.name}'s Recipes" %></h2>
+    <%= link_to "add drink", new_drink_path %>
+    <br>
+    <%= link_to "drink timeline", drinks_path %>
+  </div>
+  <br>
+  <% @user.drinks.reverse.each do |drink| %>
+    <div class="well well-xs">
+      <strong><%= drink.name %></strong>
+      <% if current_user && current_user.id == @user.id %>
+        <%= link_to "(edit", edit_drink_path(drink) %>
+        <%= link_to "remove)", drink_path(drink), method: :delete, data: {confirm: "Are you sure?"} %>
+      <% end %>
+      <br> created on 
+      <%= drink.created_at.to_formatted_s(:long_ordinal) %>
+      <br>
+      <br>
+      <strong>Glassware:</strong> 
+      <%= drink.glassware %>
+      <br>
+      <strong>Spirit(s):</strong>  
+      <% drink.spirits.each do |spirit| %>
+        <%= link_to spirit.name, spirit_path(spirit) %>
+        <% if spirit == drink.spirits.last %>
+        <% else %>
+          <% if drink.spirits.count >= 2 %>
+            <% if spirit == drink.spirits[-2] %>
+              <%= " and " %>
+            <% else %>
+              <%= ", " %>
+            <% end %>
           <% end %>
         <% end %>
       <% end %>
+      <br> 
+      <em><%= drink.recipe %></em>
+      <br>
+      <strong>Season:</strong> 
+      <%= drink.season %>
+      <br>
+      <strong>Price:</strong> 
+      <%= number_to_currency(drink.price, negative_format: "(%u%n)") %>
+    </div>
   <% end %>
-  <br>Recipe: 
-  <em><%= drink.recipe %></em>
-  <br>
-  <br>
-<% end %>
+</div>
+
+
+
 
 
 

@@ -1,11 +1,13 @@
 <br>
-<h2>Users</h2>
-<%= link_to "Back to drink timeline!", drinks_path %>
-<br>
-<br>
-<br>
-<% @users.each do |user| %>
-  <strong><%= link_to "#{user.name}", user_path(user) %></strong>
-  <%= link_to 'remove', user_path(user), method: :delete %>
-  <br>
-<% end %>
+<div class="container-fluid">
+  <div class="well well-xs">
+    <h2 id="logo">Users</h2>
+    <%= link_to "Back to drink timeline!", drinks_path %>
+    <br>
+    <br>
+    <% @users.each do |user| %>
+      <strong><%= link_to "#{user.name}", user_path(user) %></strong>
+      <br>
+    <% end %>
+  </div>
+</div>
