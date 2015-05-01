@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  root 'sessions#create'
+  root 'sessions#new'
 
 
   get "drinks/" => "drinks#index"
