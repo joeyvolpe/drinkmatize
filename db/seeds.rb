@@ -62,7 +62,7 @@ second_drink.save
 
 third_drink = conrad.drinks.new(name: "Old-Fashioned Blob", glassware: "rocks", price: 13, user_id: 3, season: "spring", recipe: "Fettercairn rose kennedy cocktail, benrinnes remy martin bellini, ginza mary lime rickey, speyside toro rojo. Caipirinha, savoy affair fettercairn painkiller staten island ferry longmorn zurracapote, polmos krakow black cossack monte alban! Finlandia chicago cocktail longmorn presbyterian old etonian black russian polish martini, gordon's irish coffee, dalmore, glenlossie, sea breeze. Pimm's cup, old crow bailey's irish cream tom collins chartreuse flirtini, pappy van winkle. Zombie alexander staten island ferry panama polish martini glen scotia jim beam black & white. Glenkinchie johnny walker red chicago cocktail knockdhu cardhu; lynchburg lemonade agent orange myers. Orgasm singapore sling hiram walker hanky-panky macduff dufftown jack and coke usher's; heart of fire old mr. boston.")
 
-third_drink.spirits << whiskey
+third_drink.spirits << rye_whiskey
 third_drink.save
 
 
