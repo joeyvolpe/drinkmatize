@@ -13,7 +13,7 @@
 <% if logged_in? %>
   Logged in as: <%= current_user.name %> <%= link_to 'Log Out', logout_path, method: :delete %>
 <% elsif @logging_in %>
-  <%= link_to 'signUp', signup_path %>
+  <%= link_to 'signUp', new_user_path %>
 
 <% else %>
   <%= link_to 'logIn', login_path %>

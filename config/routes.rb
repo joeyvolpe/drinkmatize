@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  root 'sessions#new'
+  root 'sessions#create'
 
 
   get "drinks/" => "drinks#index"
@@ -13,13 +13,16 @@ Rails.application.routes.draw do
 
 
   get "users" => "users#index"
+  get "signup" => "users#new", as: :new_user
   get "users/:id" => "users#show", as: :user
   post "users" => "users#create"
-  post "users/:id/drinks" => "drinks#create", as: :user_drinks
+  get "users/:id/edit" => "users#edit", as: :edit_user
+  patch "users/:id" => "users#update"
   delete "users/:id" => "users#destroy"
 
+  post "users/:id/drinks" => "drinks#create", as: :user_drinks
 
-  get "signup" => "users#new"
+  
   get "login" => "sessions#new"
   post "login" => "sessions#create"
   delete "logout" => "sessions#destroy"

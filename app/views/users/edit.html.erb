@@ -1,17 +1,17 @@
 <br>
+<br>
 <div class="well well-xs">
   <h2 id="logo">Edit Your Profile!</h2>
 </div>
 <br>
-<div class="well well-xs">
-  <%= form_for @user do |f| %>
+<br>
+<br>
+<%= form_for @user do |f| %>
+  <div class="well well-xs">
     <div>
       <%= f.label :name %>
       <%= f.text_field :name %>
     </div>
-    <%= f.label :Picture %>
-    <%= f.file_field :pic_url %>
-  <% end %>
     <div>
       <%= f.label :email %>
       <%= f.text_field :email %>
@@ -20,8 +20,9 @@
       <%= f.label :password %>
       <%= f.password_field :password %>
     </div>
+    <br>
     <div>
       <%= f.submit %>
     </div>
-  <% end %>
-</div>
+  </div>
+<% end %>

@@ -7,6 +7,10 @@
     <br>
     <% @users.each do |user| %>
       <strong><%= link_to "#{user.name}", user_path(user) %></strong>
+      <% if current_user && current_user.id == @user.id %>
+        <%= link_to "(edit", edit_user_path(user) %>
+        <%= link_to "remove)", user_path(user), method: :delete, data: {confirm: "Are you sure?"} %>
+      <% end %>
       <br>
     <% end %>
   </div>

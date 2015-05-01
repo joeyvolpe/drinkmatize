@@ -1,22 +1,28 @@
 <br>
+<br>
+<div class="well well-xs">
 <h2 id="logo">Sign Up</h2>
+</div>
 <br>
 <br>
 <br>
 <%= form_for @user do |f| %>
-  <div>
-    <%= f.label :name %>
-    <%= f.text_field :name %>
-  </div>
-  <div>
-    <%= f.label :email %>
-    <%= f.text_field :email %>
-  </div>
-  <div>
-    <%= f.label :password %>
-    <%= f.password_field :password %>
-  </div>
-  <div>
-    <%= f.submit %>
+  <div class="well well-xs">
+    <div>
+      <%= f.label :name %>
+      <%= f.text_field :name %>
+    </div>
+    <div>
+      <%= f.label :email %>
+      <%= f.text_field :email %>
+    </div>
+    <div>
+      <%= f.label :password %>
+      <%= f.password_field :password %>
+    </div>
+    <br>
+    <div>
+      <%= f.submit %>
+    </div>
   </div>
 <% end %>
